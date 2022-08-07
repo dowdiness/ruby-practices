@@ -12,12 +12,12 @@ module Ls
           long_format: false,
           reverse: false
         }
-        parser = create_parser options
+        parser = create options
         path = Pathname(parser.parse(args)[0] || '.')
         [path, options]
       end
 
-      def create_parser(options)
+      def create(options)
         OptionParser.new do |opts|
           opts.on('-a', 'Include directory entries whose names begin with a dot (.).') do
             options[:dot_match] = true
